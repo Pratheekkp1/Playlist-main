@@ -1,0 +1,37 @@
+Class Implementations in PlaylistController.js:
+In this project, the PlaylistController class is in charge of handling all the playlist actions and user interactions. It connects the data (songs) to what’s shown on the screen and controls what happens when buttons are clicked.
+
+The class has a constructor that sets up the controller with a reference to the PlaylistModel, which holds the actual list of songs. Inside the controller, there are functions for things like displaying songs, adding a new song to the list, and deleting songs. These functions work by updating the model and then updating the HTML to show the changes.
+
+One interesting method is displayRandom5Songs(), which tries to grab 5 random songs from the full list and show only those. The method creates a copy of the song list, shuffles it using a sorting trick with Math.random(), and then slices the first 5 items to display. However, there are bugs that make it not work right, like not updating the actual view correctly or resetting the full list after showing the 5 songs.
+
+
+addSong(Song song)
+Adds a new song to the end of the playlist and updates the display.
+
+removeSong(int index)
+Removes a song at the given position if it's valid and updates the display.
+
+moveSongUp(int index)
+Moves a song one spot up in the list if possible and updates the display.
+
+moveSongDown(int index)
+Moves a song one spot down in the list if possible and updates the display.
+
+sortByTitle()
+Sorts the playlist alphabetically by song title and updates the display.
+
+clearPlaylist()
+Removes all songs from the playlist.
+
+getSize()
+Returns the number of songs in the playlist.
+
+getSongAt(int index)
+Returns the song at the specified index.
+
+getAllSongs()
+Returns the entire playlist.
+
+getRandomSongs(int count)
+Picks a number of random songs (up to count) from the playlist. However, this method has issues—it grabs only the first count songs instead of shuffling the whole playlist, and then tries to shuffle that limited list, which isn’t actually random.
